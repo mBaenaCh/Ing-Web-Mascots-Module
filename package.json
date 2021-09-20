@@ -1,0 +1,14 @@
+{
+  "name": "ing-web-mascots-module",
+  "version": "1.0.0",
+  "description": "Mascots module for the Pets Garden application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "Mateo Baena Chavarriaga",
+  "license": "ISC"
+}
