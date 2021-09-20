@@ -27,7 +27,7 @@ const getMascotByIdRepository = async mascotId => {
 
 const updateMascotRepository = async (mascotId, mascot) => {
     try {
-        return await Mascot.findByIdAndUpdate(mascotId, mascto, {
+        return await Mascot.findByIdAndUpdate(mascotId, mascot, {
             new: true,
         });
     }catch (error) {
