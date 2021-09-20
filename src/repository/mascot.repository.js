@@ -1,8 +1,6 @@
-import Mascot from '../models/Mascot';
+const Mascot = require('../models/Mascot')
 
-const Employee = require('../models/Mascot')
-
-export const saveMascotRepository = async mascot => {
+const saveMascotRepository = async mascot => {
     try {
         const newMascot = new Mascot(mascot);
         return await newMascot.save();
@@ -11,7 +9,7 @@ export const saveMascotRepository = async mascot => {
     }
 };
 
-export const getMascotsRepository = async ()=>{
+const getMascotsRepository = async ()=>{
     try {
         return await Mascot.find();
     } catch (error) {
@@ -19,7 +17,7 @@ export const getMascotsRepository = async ()=>{
     }
 };
 
-export const getMascotByIdRepository = async mascotId => {
+const getMascotByIdRepository = async mascotId => {
     try {
         return await Mascot.findById(mascotId);
     } catch (error) {
@@ -27,7 +25,7 @@ export const getMascotByIdRepository = async mascotId => {
     }
 };
 
-export const updateMascotRepository = async (mascotId, mascot) => {
+const updateMascotRepository = async (mascotId, mascot) => {
     try {
         return await Mascot.findByIdAndUpdate(mascotId, mascto, {
             new: true,
@@ -37,10 +35,12 @@ export const updateMascotRepository = async (mascotId, mascot) => {
     }
 };
 
-export const deleteMascotRepository = async mascotId => {
+const deleteMascotRepository = async mascotId => {
     try{
         return await Mascot.findByIdAndDelete(mascotId);
     } catch (error){ 
         console.log(error);
     }
 };
+
+module.exports = {saveMascotRepository, getMascotsRepository, getMascotByIdRepository, updateMascotRepository, deleteMascotRepository};
