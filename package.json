@@ -4,7 +4,7 @@
   "description": "Mascots module for the Pets Garden application",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "start:dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
@@ -17,5 +17,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }
