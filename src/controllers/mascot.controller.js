@@ -17,5 +17,5 @@ export const updateMascotById = async (req, res) => {
 };
 
 export const deleteMascotById = async (req,res) => {
-    
+
 }
