@@ -1,7 +1,7 @@
-const { config } = require('dotenv');
+const config = require('./config');
 const app = require('./app');
 require('./database');
 
-const PORT = 4000;
+const PORT = config.SERVER_PORT || 4000;
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
