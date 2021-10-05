@@ -4,6 +4,7 @@ const DatabaseException = require('../exceptions/databaseException');
 const saveMascotRepository = async mascot => {
     try {
         const newMascot = new Mascot(mascot);
+        newMascot.owners.push(mascot.owner_id);
         return await newMascot.save();
     } catch (error){
         throw new DatabaseException('Lo sentimos, ha ocurrido algun problema con la base de datos');
@@ -28,10 +29,20 @@ const getMascotByIdRepository = async mascotId => {
 
 const updateMascotRepository = async (mascotId, mascot) => {
     try {
-        return await Mascot.findByIdAndUpdate(mascotId, mascot, {
-            new: true,
-        });
+        if(mascot.owner_id !== undefined){
+            const mascotToUpdate = await Mascot.findById(mascotId);
+            mascotToUpdate.owners.push(mascot.owner_id);
+            return await Mascot.findByIdAndUpdate(mascotId, mascotToUpdate, {
+                new: true,
+            });
+        } else {
+            return await Mascot.findByIdAndUpdate(mascotId, mascot, {
+                new: true,
+            });
+        }
+        
     }catch (error) {
+        console.log(error);
         throw new DatabaseException('Lo sentimos, ha ocurrido algun problema con la base de datos');
     }
 };
