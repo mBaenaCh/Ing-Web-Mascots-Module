@@ -21,6 +21,7 @@ const mascotSchema = new Schema(
         attendance: {
             type: String,
         },
+        owners: [],
     },
     {
         timestamps: true,
