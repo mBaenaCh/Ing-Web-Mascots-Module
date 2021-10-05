@@ -3,12 +3,12 @@ const EmptyFieldsException = require('../exceptions/emptyFieldsException');
 
 const createMascotService = async mascot =>{
 
-    const { name, breed, size, age, vaccinePlan, attendance, owners } = mascot
-
-    if (name === '' || breed === '' || size === '' || age === '' || vaccinePlan === '' || attendance === '' || owners.length == 0)
+    const { name, breed, size, age, vaccinePlan, attendance, owner_id } = mascot
+    if (name === '' || breed === '' || size === '' || age === '' || vaccinePlan === '' || attendance === '' || owner_id === '')
         throw new EmptyFieldsException('La información de la mascota debe estar completa, no deje campos vacios')
     
     const createdMascot = await mascotRepository.saveMascotRepository(mascot);
+    console.log(createdMascot)
     return createdMascot;
 };
 
@@ -22,8 +22,8 @@ const getMascotService = async mascotId => {
 
 const updateMascotService = async (mascotId, mascot) => {
 
-    const { name, breed, size, age, vaccinePlan, attendance } = mascot;
-    if (name === '' || breed === '' || size === '' || age === '' || vaccinePlan === '' || attendance === '')
+    const { name, breed, size, age, vaccinePlan, attendance, owner_id } = mascot;
+    if (name === '' || breed === '' || size === '' || age === '' || vaccinePlan === '' || attendance === '' || owner_id === '')
         throw new EmptyFieldsException('La información de la mascota debe estar completa, no deje campos vacios');
 
     return mascotRepository.updateMascotRepository(mascotId, mascot);
