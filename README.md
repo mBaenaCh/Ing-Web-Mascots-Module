@@ -8,7 +8,7 @@ Module destinated to CRUD around a mascot entity
 2. Run `npm install`
 3. Run `npm run start`
 
-##Routes
+## Routes
 
 1. `GET` all the mascots
 ```
