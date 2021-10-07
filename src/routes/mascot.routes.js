@@ -7,7 +7,7 @@ const router = Router();
 
 router.post('/', verifyToken, verifyRole, mascotController.createMascot);
 router.get('/', mascotController.getMascots);
-router.get('/:mascotId', mascotController.getMascotById);
+router.get('/:mascotId', verifyToken, verifyRole, mascotController.getMascotById);
 router.put('/:mascotId', verifyToken, verifyRole, mascotController.updateMascotById);
 router.delete('/:mascotId', verifyToken, verifyRole, mascotController.deleteMascotById);
 
